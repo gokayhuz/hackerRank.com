@@ -11,6 +11,6 @@ scores. I am posting these in case someone gets stuck in any of
 the problems and needs a full solution.
 
 All solutions are in JAVA, with very minor comments about the
-problem statement. Please refer to the original problem statement
+problem. Please refer to the original problem statement
 on hackerrank.com for details.
 
