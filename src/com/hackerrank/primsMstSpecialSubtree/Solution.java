@@ -1,10 +1,12 @@
 package com.hackerrank.primsMstSpecialSubtree;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Scanner;
+
+import Edge;
+import ListGraph;
 
 class EdgeComparator implements Comparator {
 
@@ -17,67 +19,6 @@ class EdgeComparator implements Comparator {
 	}
 	
 }
-class Edge implements Comparable {
-	int src;
-	int dst;
-	int weight;
-	Edge(int src, int dst, int w) {
-		this.src = src; this.dst = dst; this.weight=w;
-	}
-	@Override
-	public String toString() {
-		return src + "-->" + dst + "(" + weight + ")\n";
-	}
-	@Override
-	public int compareTo(Object other) {
-		if (weight < ((Edge)(other)).weight)
-			return -1;
-		else 
-			return 1;
-	}
-}
-
-class ListGraph {
-	int E;
-	int V;
-	ArrayList<Edge>[] edges;
-	boolean isDirected;
-	
-	ListGraph(int v, boolean directed) {
-		V = v;
-		edges = (ArrayList<Edge>[])(new ArrayList[V]);
-		for (int i = 0; i < V; i++) {
-			edges[i] = new ArrayList<Edge>();
-		}
-		isDirected = directed;
-	}
-	
-	public void addEdge(int src, int dst, int wght) {
-		edges[src].add(new Edge(src,dst, wght));
-		if (!isDirected)
-			edges[dst].add(new Edge(dst, src, wght));
-	}
-	
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		if (isDirected)
-			sb.append("Directed Graph");
-		else
-			sb.append("Undirected Graph");
-		sb.append(" with " + V + " vertices\n\n");
-		for (int i = 0; i < V; i++) {
-			sb.append("Vertex " + i + "\n");
-			int l = edges[i].size();
-			for (int j = 0; j < l; j++) {
-				sb.append(edges[i].get(j));
-			}
-			sb.append("\n");
-		}
-		return sb.toString();
-	}
-}
-
 
 public class Solution {
 
@@ -87,7 +28,7 @@ public class Solution {
 		int M = sc.nextInt();	// num of edges
 		ListGraph graph = new ListGraph(N, false);
 		
-		// read the inoput and create the graph
+		// read the input and create the graph
 		for (int i = 0; i < M; i++) {
 			int src = sc.nextInt()-1;
 			int dst = sc.nextInt()-1;
