@@ -1,7 +1,6 @@
 package com.hackerrank.aORb;
 import java.util.Scanner;
 
-
 public class Solution {
 	public static void printArray(char[] a) {
 		boolean leading = true;
